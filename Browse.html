@@ -3,6 +3,31 @@
 <style>
 body{margin:0;background:#140A24}
 a{color:#FFD34E}a:hover{color:#FFE48A}
+@media (max-width: 820px){
+.br-chipbar{top:79px !important}
+.br-chipbar .m-chips{padding:12px 20px !important;margin:0 !important}
+}
+@media (max-width: 700px){
+.br-top{padding:24px 20px 16px !important}
+.br-top h1{font-size:34px !important}
+.br-top p{font-size:15px !important;margin-bottom:18px !important}
+.br-search{display:grid !important;grid-template-columns:minmax(0,1fr) auto;padding:6px !important;border-radius:18px !important;gap:6px !important}
+.br-q{grid-column:1 / -1}
+.br-q,.br-loc{min-width:0;min-height:50px !important;padding:0 14px !important}
+.br-search button{min-height:50px !important;padding:0 18px !important}
+.br-feat>a{height:220px !important}
+[style*="padding: 32px 32px 16px"]{padding:28px 20px 8px !important}
+[style*="padding: 24px 32px 96px"]{padding:20px 20px 64px !important}
+.br-res h2{font-size:19px !important;white-space:nowrap}
+.br-res select{min-height:40px !important;font-size:13px !important;padding:0 32px 0 12px !important}
+.br-feat+div,.br-top+div{margin-top:0}
+.br-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important}
+.br-grid article{padding:6px !important;border-radius:18px !important}
+.br-grid article>div>a{height:140px !important;border-radius:13px !important}
+.br-grid article>a{padding:10px 6px 8px !important}
+.br-grid article>a>span:first-child{font-size:14px !important}
+.br-grid article>a>span:last-child{font-size:12px !important}
+}
 </style>
 
 
@@ -136,206 +161,254 @@ p[style*="font-size: 19px"],p[style*="font-size: 18px"]{font-size:16px !importan
 
 
 
-  <section style="max-width: 1240px; margin: 0 auto; padding: 56px 32px 32px">
-    <h1 style="margin: 0 0 24px; font-family: Poppins, system-ui, sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.025em">Find your <span style="color: #FFD34E">party people.</span></h1>
-    <div role="search" style="background: #1F1333; border-radius: 18px; padding: 8px; display: flex; flex-wrap: wrap; gap: 8px; border: 1px solid #3D2A5C">
-      <label style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 2px; padding: 8px 16px; font-size: 12px; font-weight: 600; color: #CFC3E6">Search
-        <input type="text" placeholder="Vendor or service" style="border: 0; outline: none; font: inherit; font-size: 16px; font-weight: 500; color: #F3EEFB; padding: 0; background: transparent">
+  <section class="br-top" style="max-width: 1240px; margin: 0 auto; padding: 56px 32px 24px">
+    <h1 style="margin: 0 0 10px; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.025em">Find your <span style="color: #FFD34E">party people.</span></h1>
+    <p style="margin: 0 0 28px; font-size: 17px; color: #CFC3E6">Venues, caterers, DJs, décor and more, near you.</p>
+    <div class="br-search" role="search" style="background: #1F1333; border-radius: 20px; padding: 8px; display: flex; gap: 8px; border: 1px solid #3D2A5C; max-width: 900px">
+      <label class="br-q" style="flex: 2 1 0; display: flex; align-items: center; gap: 12px; padding: 0 16px; min-height: 56px; border-radius: 14px; background: #140A24">
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+        <input type="text" aria-label="Search vendors or services" placeholder="DJs, venues, catering…" style="flex: 1; min-width: 0; border: 0; outline: none; font: inherit; font-size: 16px; color: #F3EEFB; padding: 0; background: transparent">
       </label>
-      <label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 2px; padding: 8px 16px; border-left: 1px solid #3D2A5C; font-size: 12px; font-weight: 600; color: #CFC3E6">Location
-        <input type="text" placeholder="City or ZIP" style="border: 0; outline: none; font: inherit; font-size: 16px; font-weight: 500; color: #F3EEFB; padding: 0; background: transparent">
+      <label class="br-loc" style="flex: 1 1 0; display: flex; align-items: center; gap: 10px; padding: 0 16px; min-height: 56px; border-radius: 14px; background: #140A24">
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#B99CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+        <input type="text" aria-label="Location" placeholder="City or ZIP" style="flex: 1; min-width: 0; border: 0; outline: none; font: inherit; font-size: 16px; color: #F3EEFB; padding: 0; background: transparent">
       </label>
-      <button type="button" style="padding: 0 28px; min-height: 56px; border: 0; border-radius: 12px; background: #FFD34E; color: #1B0F2E; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer">Search</button>
+      <button type="button" style="flex: none; padding: 0 28px; min-height: 56px; border: 0; border-radius: 14px; background: #FFD34E; color: #1B0F2E; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer">Search</button>
     </div>
-    <div class="m-chips" role="toolbar" aria-label="Categories" style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px">
+  </section>
+
+  <div class="br-chipbar" style="position: sticky; top: 0; z-index: 10; background: rgba(20,10,36,.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid #2A1B42">
+    <div class="m-chips" role="toolbar" aria-label="Categories" style="max-width: 1240px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 10px; box-sizing: border-box">
       
-        <button type="button" aria-pressed="true" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #FFD34E; background: #FFD34E; color: #1B0F2E; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">All</button>
+        <button type="button" data-chip="All" aria-pressed="true" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #FFD34E; background: #FFD34E; color: #1B0F2E; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">All</button>
       
-        <button type="button" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Venues</button>
+        <button type="button" data-chip="Venues" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Venues</button>
       
-        <button type="button" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Catering</button>
+        <button type="button" data-chip="Catering" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Catering</button>
       
-        <button type="button" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Décor</button>
+        <button type="button" data-chip="Décor" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Décor</button>
       
-        <button type="button" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Entertainment</button>
+        <button type="button" data-chip="Entertainment" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Entertainment</button>
       
-        <button type="button" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Rentals</button>
+        <button type="button" data-chip="Rentals" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Rentals</button>
       
-        <button type="button" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Photographers</button>
+        <button type="button" data-chip="Photographers" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Photographers</button>
       
-        <button type="button" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Event staff</button>
+        <button type="button" data-chip="Event staff" aria-pressed="false" style="padding: 0 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid #3D2A5C; background: transparent; color: #F3EEFB; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Event staff</button>
+      
+    </div>
+  </div>
+
+  <section style="max-width: 1240px; margin: 0 auto; padding: 32px 32px 16px">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 18px">
+      <h2 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Popular near you</h2>
+      <a href="Download.html" style="font-size: 14px; font-weight: 600; text-decoration: none">See all</a>
+    </div>
+    <div class="m-scroll br-feat" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+      
+        <a href="Vendor.html" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; height: 260px; padding: 18px; box-sizing: border-box; border-radius: 24px; overflow: hidden; text-decoration: none; color: #F3EEFB; background: repeating-linear-gradient(135deg, #2A1B42 0 14px, #24173A 14px 28px)">
+          <span style="align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: #FFD34E; color: #1B0F2E; font-size: 12px; font-weight: 600">Featured</span>
+          <span style="font-size: 12px; color: #A99BC4; text-align: center">[Vendor photo]</span>
+          <span style="display: block; padding: 14px 16px; margin: 0 -6px -6px; border-radius: 18px; background: rgba(20,10,36,.88)"><span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span><span style="display: block; margin-top: 2px; font-size: 13px; color: #CFC3E6">Venues · [City] · [Rating]</span></span>
+        </a>
+      
+        <a href="Vendor.html" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; height: 260px; padding: 18px; box-sizing: border-box; border-radius: 24px; overflow: hidden; text-decoration: none; color: #F3EEFB; background: repeating-linear-gradient(135deg, #2A1B42 0 14px, #24173A 14px 28px)">
+          <span style="align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: #FFD34E; color: #1B0F2E; font-size: 12px; font-weight: 600">Featured</span>
+          <span style="font-size: 12px; color: #A99BC4; text-align: center">[Vendor photo]</span>
+          <span style="display: block; padding: 14px 16px; margin: 0 -6px -6px; border-radius: 18px; background: rgba(20,10,36,.88)"><span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span><span style="display: block; margin-top: 2px; font-size: 13px; color: #CFC3E6">Entertainment · [City] · [Rating]</span></span>
+        </a>
+      
+        <a href="Vendor.html" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; height: 260px; padding: 18px; box-sizing: border-box; border-radius: 24px; overflow: hidden; text-decoration: none; color: #F3EEFB; background: repeating-linear-gradient(135deg, #2A1B42 0 14px, #24173A 14px 28px)">
+          <span style="align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: #FFD34E; color: #1B0F2E; font-size: 12px; font-weight: 600">Featured</span>
+          <span style="font-size: 12px; color: #A99BC4; text-align: center">[Vendor photo]</span>
+          <span style="display: block; padding: 14px 16px; margin: 0 -6px -6px; border-radius: 18px; background: rgba(20,10,36,.88)"><span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span><span style="display: block; margin-top: 2px; font-size: 13px; color: #CFC3E6">Catering · [City] · [Rating]</span></span>
+        </a>
       
     </div>
   </section>
 
-  <section style="max-width: 1240px; margin: 0 auto; padding: 16px 32px 96px">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px">
-      <p style="margin: 0; font-size: 15px; color: #CFC3E6"><strong style="color: #F3EEFB">12</strong> vendors · All categories</p>
-      <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CFC3E6">Sort by
-        <select style="font: inherit; font-size: 14px; padding: 10px 12px; border: 1px solid #3D2A5C; border-radius: 10px; background: #1F1333; color: #F3EEFB; min-height: 44px"><option>Recommended</option><option>Top rated</option><option>Nearest</option></select>
+  <section style="max-width: 1240px; margin: 0 auto; padding: 24px 32px 96px">
+    <div class="br-res" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px">
+      <h2 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em"><span id="br-label">All categories</span> <span style="font-size: 15px; font-weight: 500; color: #A99BC4">(<span id="br-count">12</span>)</span></h2>
+      <label style="position: relative; display: flex; align-items: center">
+        <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Sort by</span>
+        <select style="appearance: none; -webkit-appearance: none; font: inherit; font-size: 14px; font-weight: 500; padding: 0 38px 0 16px; border: 1px solid #3D2A5C; border-radius: 999px; background: #1F1333; color: #F3EEFB; min-height: 44px"><option>Recommended</option><option>Top rated</option><option>Nearest</option></select>
+        <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="#CFC3E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; pointer-events: none"><path d="M6 9l6 6 6-6"></path></svg>
       </label>
     </div>
-    <div class="m-grid2" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px">
+    <div class="br-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px">
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Venues" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Venues</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Venues · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Catering" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Catering</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Catering · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Décor" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Décor</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Décor · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Entertainment" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Entertainment</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Entertainment · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Rentals" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Rentals</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Rentals · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Photographers" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Photographers</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Photographers · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Event staff" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Event staff</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Event staff · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Venues" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Venues</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Venues · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Catering" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Catering</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Catering · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Entertainment" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Entertainment</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Entertainment · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Décor" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Décor</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Décor · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
-        <article style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column">
+        <article data-cat="Photographers" style="background: #1F1333; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; padding: 8px">
           <div style="position: relative">
-            <a href="Vendor.html" style="display: flex; height: 200px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 13px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
-            <button type="button" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #140A24; cursor: pointer; display: flex; align-items: center; justify-content: center">
-              <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+            <a href="Vendor.html" style="display: flex; height: 190px; border-radius: 16px; background: repeating-linear-gradient(135deg, #2A1B42 0 12px, #24173A 12px 24px); align-items: center; justify-content: center; font-size: 12px; color: #A99BC4; text-decoration: none">[Vendor photo]</a>
+            <span style="position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(20,10,36,.85); color: #F3EEFB; font-size: 11px; font-weight: 500">Photographers</span>
+            <button type="button" class="br-heart" aria-label="Save vendor" aria-pressed="false" style="position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(20,10,36,.85); cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="#FFD34E" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
             </button>
           </div>
-          <a href="Vendor.html" style="padding: 18px 20px 22px; text-decoration: none; color: #F3EEFB">
-            <span style="display: block; font-size: 17px; font-weight: 600">[Vendor name]</span>
-            <span style="display: block; margin-top: 4px; font-size: 14px; color: #CFC3E6">Photographers · [City]</span>
+          <a href="Vendor.html" style="padding: 12px 10px 10px; text-decoration: none; color: #F3EEFB">
+            <span style="display: block; font-size: 16px; font-weight: 600">[Vendor name]</span>
+            <span style="display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; color: #CFC3E6"><svg width="13" height="13" viewbox="0 0 24 24" fill="#FFD34E" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>[Rating] · [City]</span>
           </a>
         </article>
       
     </div>
-    <div style="margin-top: 48px; display: flex; justify-content: center">
-      <a href="Download.html" style="padding: 0 28px; min-height: 52px; display: inline-flex; align-items: center; border-radius: 999px; border: 1.5px solid #6B5590; color: #F3EEFB; text-decoration: none; font-weight: 600">See more in the app</a>
+    <div style="margin-top: 40px; display: flex; justify-content: center">
+      <a href="Download.html" style="padding: 0 28px; min-height: 52px; display: inline-flex; align-items: center; border-radius: 999px; border: 1.5px solid #6B5590; color: #F3EEFB; text-decoration: none; font-weight: 600">See more vendors in the app</a>
     </div>
   </section>
 
@@ -372,4 +445,30 @@ p[style*="font-size: 19px"],p[style*="font-size: 18px"]{font-size:16px !importan
 </footer>
 
 </div>
-</body></html>
+<script>(function(){
+  var chips=[].slice.call(document.querySelectorAll('[data-chip]'));
+  if(!chips.length) return;
+  var on=chips.filter(function(c){return c.getAttribute('aria-pressed')==='true'})[0].getAttribute('style');
+  var off=chips.filter(function(c){return c.getAttribute('aria-pressed')!=='true'})[0].getAttribute('style');
+  var cards=[].slice.call(document.querySelectorAll('article[data-cat]'));
+  var count=document.getElementById('br-count'), label=document.getElementById('br-label');
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      var cat=chip.getAttribute('data-chip'), n=0;
+      chips.forEach(function(c){var a=c===chip;c.setAttribute('style',a?on:off);c.setAttribute('aria-pressed',a?'true':'false');});
+      cards.forEach(function(card){var show=cat==='All'||card.getAttribute('data-cat')===cat;card.style.display=show?'':'none';if(show)n++;});
+      if(count) count.textContent=n;
+      if(label) label.textContent=cat==='All'?'All categories':cat;
+      chip.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    });
+  });
+  [].slice.call(document.querySelectorAll('.br-heart')).forEach(function(h){
+    h.addEventListener('click',function(){
+      var p=h.getAttribute('aria-pressed')==='true';
+      h.setAttribute('aria-pressed',p?'false':'true');
+      h.querySelector('svg').setAttribute('fill',p?'none':'#FFD34E');
+      h.animate&&h.animate([{transform:'scale(1)'},{transform:'scale(1.25)'},{transform:'scale(1)'}],{duration:260});
+    });
+  });
+})();
+</script></body></html>
