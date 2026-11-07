@@ -14,7 +14,58 @@ body{margin:0}
 .pd-mob summary::-webkit-details-marker{display:none}
 .pd-mob[open] .pd-burger{display:none}
 .pd-mob:not([open]) .pd-close{display:none}
+@keyframes pd-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pd-float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes pd-glow{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.7;transform:scale(1.12)}}
+@keyframes pd-pop{0%{opacity:0;transform:translateY(16px) scale(.92)}70%{transform:translateY(-3px) scale(1.02)}100%{opacity:1;transform:none}}
+@keyframes pd-wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@media (prefers-reduced-motion: no-preference){
+h1{animation:pd-up .8s cubic-bezier(.2,.7,.2,1) both}
+h1+p,h1~p{animation:pd-up .8s .15s cubic-bezier(.2,.7,.2,1) both}
+h1~div,.m-btns{animation:pd-up .8s .3s cubic-bezier(.2,.7,.2,1) both}
+.m-phone{animation:pd-float 7s ease-in-out infinite}
+div[aria-hidden="true"][style*="filter: blur"]{animation:pd-glow 6s ease-in-out infinite}
+.pd-header a[aria-label="Pardeasy home"]:hover img{animation:pd-wiggle .6s ease-in-out}
+div[style*="border-radius: 20px 20px 20px 6px"],div[style*="border-radius: 20px 20px 6px 20px"]{animation:pd-pop .6s cubic-bezier(.2,.7,.2,1) both}
+div[style*="border-radius: 20px 20px 6px 20px"]{animation-delay:.5s}
+div[style*="border-radius: 20px 20px 20px 6px"]~div[style*="border-radius: 20px 20px 20px 6px"]{animation-delay:1s}
+a[style*="background: #FFD34E"],a[style*="border: 1.5px solid"],button{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+a[style*="background: #FFD34E"]:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,211,78,.28)}
+a[style*="border: 1.5px solid"]:hover{transform:translateY(-2px)}
+div[style*="background: #1F1333; border-radius: 24px"],article,div[style*="border: 1.5px solid #3D2A5C; border-radius: 24px"]{transition:transform .25s ease,box-shadow .25s ease}
+div[style*="background: #1F1333; border-radius: 24px"]:hover,article:hover,div[style*="border: 1.5px solid #3D2A5C; border-radius: 24px"]:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.35)}
+@supports (animation-timeline: view()){
+section h2,.m-scroll>*,.m-chips,figure,details,article,ul>li,ol>li{animation:pd-up linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+}
+}
 @media (max-width: 820px){.pd-desk{display:none !important}.pd-mob{display:block}}
+@media (max-width: 700px){
+body{padding-bottom:88px}
+.pd-header{position:sticky;top:0;background:rgba(20,10,36,.82) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.pd-header img{height:42px !important}
+.pd-appbar{display:flex !important}
+[style*="padding: 112px 32px"],[style*="padding: 120px 32px"],[style*="padding: 104px 32px"],[style*="padding: 96px 32px"]{padding:56px 20px !important}
+[style*="padding: 72px 32px 96px"],[style*="padding: 88px 32px"],[style*="padding: 80px 32px"]{padding:28px 20px 48px !important}
+[style*="padding: 0 32px 112px"],[style*="padding: 0 32px 104px"]{padding:0 20px 56px !important}
+[style*="padding: 56px 32px"],[style*="padding: 16px 32px 96px"],[style*="padding: 28px 32px 96px"],[style*="padding: 48px 32px 112px"]{padding-left:20px !important;padding-right:20px !important}
+[style*="border-radius: 32px; padding: 64px"]{padding:32px 24px !important;border-radius:26px !important}
+h1{font-size:44px !important;line-height:1.02 !important}
+h2[style*="clamp"]{font-size:32px !important;line-height:1.08 !important;margin-bottom:24px !important}
+p[style*="font-size: 19px"],p[style*="font-size: 18px"]{font-size:16px !important}
+.m-scroll{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;gap:14px !important;margin:0 -20px;padding:0 20px 12px;scrollbar-width:none}
+.m-scroll::-webkit-scrollbar{display:none}
+.m-scroll>*{flex:0 0 80%;scroll-snap-align:start;box-sizing:border-box}
+.m-chips{flex-wrap:nowrap !important;overflow-x:auto;margin:0 -20px;padding:0 20px 6px;scrollbar-width:none}
+.m-chips::-webkit-scrollbar{display:none}
+.m-chips>*{flex:none;white-space:nowrap}
+.m-btns{flex-direction:column}
+.m-btns>a{justify-content:center;width:100%;box-sizing:border-box}
+.m-phone{width:210px !important;height:430px !important;border-radius:34px !important}
+.m-grid2{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important}
+.m-grid2 article>div>a{height:130px !important}
+.m-grid2 article>a{padding:12px 12px 14px !important}
+.m-grid2 article>a>span:first-child{font-size:15px !important}
+}
 </style>
 
 
@@ -25,7 +76,7 @@ body{margin:0}
 <div style="font-family: Poppins, system-ui, sans-serif; color: #F3EEFB; background: #140A24">
   
 
-<header style="position: relative; z-index: 20; font-family: Poppins, system-ui, sans-serif; color: #F3EEFB; background: #140A24; border-bottom: 1px solid #2A1B42">
+<header class="pd-header" style="position: relative; z-index: 20; font-family: Poppins, system-ui, sans-serif; color: #F3EEFB; background: #140A24; border-bottom: 1px solid #2A1B42">
   <div style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
     <a href="Home.html" aria-label="Pardeasy home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #F3EEFB">
       <img src="pardeasy-logo.png" alt="" style="height: 52px; width: auto; display: block">
@@ -63,6 +114,11 @@ body{margin:0}
     </details>
   </div>
 </header>
+<div class="pd-appbar" style="display: none; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; align-items: center; gap: 12px; padding: 10px 10px 10px 16px; border-radius: 20px; background: rgba(31,19,51,.92); border: 1px solid #3D2A5C; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); font-family: Poppins, system-ui, sans-serif; box-shadow: 0 12px 32px rgba(0,0,0,.45)">
+  <img src="pardeasy-logo.png" alt="" style="height: 38px; width: auto; display: block">
+  <span style="flex: 1; min-width: 0; color: #F3EEFB; font-size: 14px; line-height: 1.25"><strong style="display: block; font-weight: 600">Pardeasy</strong><span style="color: #CFC3E6; font-size: 12px">Free on iOS &amp; Android</span></span>
+  <a href="Download.html" style="flex: none; background: #FFD34E; color: #1B0F2E; text-decoration: none; padding: 0 18px; min-height: 44px; border-radius: 14px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center">Get the app</a>
+</div>
 
 
   
@@ -71,14 +127,14 @@ body{margin:0}
       <p style="margin: 0 0 20px; display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #FFD34E; color: #1B0F2E; font-size: 14px; font-weight: 600">Free vendor profiles</p>
       <h1 style="margin: 0 0 22px; font-family: Poppins, system-ui, sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 80px); line-height: 0.98; letter-spacing: -0.025em">Get found.<br><span style="color: #FFD34E">Get booked.</span></h1>
       <p style="margin: 0 0 36px; max-width: 540px; font-size: 19px; line-height: 1.6; color: #CFC3E6">Venues, caterers, DJs, décor, rentals, photographers, staff — if you make events happen, Pardeasy puts your business in front of people planning one nearby.</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+      <div class="m-btns" style="display: flex; flex-wrap: wrap; gap: 12px">
         <a href="Download.html" style="padding: 0 28px; min-height: 56px; display: inline-flex; align-items: center; border-radius: 14px; background: #FFD34E; color: #1B0F2E; text-decoration: none; font-weight: 600; font-size: 17px">Claim your free profile</a>
         <a href="#vendor-faq" style="padding: 0 28px; min-height: 56px; display: inline-flex; align-items: center; border-radius: 14px; border: 1.5px solid #6B5590; color: #F3EEFB; text-decoration: none; font-weight: 600; font-size: 17px">Vendor FAQ</a>
       </div>
     </div>
     <div style="flex: 1 1 360px; display: flex; justify-content: center; position: relative">
       <div aria-hidden="true" style="position: absolute; width: 320px; height: 320px; border-radius: 50%; background: #FFD34E; top: 120px; opacity: 0.25; filter: blur(70px)"></div>
-      <div role="img" aria-label="Vendor dashboard screenshot" style="position: relative; width: 300px; height: 600px; border-radius: 44px; border: 10px solid #2A1B42; background: #0B0516; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #A99BC4; font-size: 14px; text-align: center; padding: 20px">[App screenshot: vendor dashboard]</div>
+      <div class="m-phone" role="img" aria-label="Vendor dashboard screenshot" style="position: relative; width: 300px; height: 600px; border-radius: 44px; border: 10px solid #2A1B42; background: #0B0516; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #A99BC4; font-size: 14px; text-align: center; padding: 20px">[App screenshot: vendor dashboard]</div>
     </div>
   </section>
 
@@ -86,7 +142,7 @@ body{margin:0}
   <section style="background: #1A0E2E; border-top: 1px solid #2A1B42; border-bottom: 1px solid #2A1B42">
     <div style="max-width: 1240px; margin: 0 auto; padding: 104px 32px">
       <h2 style="margin: 0 0 48px; max-width: 720px; font-family: Poppins, system-ui, sans-serif; font-size: clamp(34px, 4.5vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em">Everything you need to win more events.</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+      <div class="m-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
         
           <div style="background: #1F1333; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
             <span style="width: 52px; height: 52px; border-radius: 16px; background: #6A2BD9; display: flex; align-items: center; justify-content: center">
@@ -128,7 +184,7 @@ body{margin:0}
   <section style="max-width: 1240px; margin: 0 auto; padding: 112px 32px">
     <p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFD34E">Get listed</p>
     <h2 style="margin: 0 0 48px; font-family: Poppins, system-ui, sans-serif; font-size: clamp(34px, 4.5vw, 52px); font-weight: 800; letter-spacing: -0.03em">Three steps. Zero fees.</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+    <div class="m-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
       
         <div style="border: 1.5px solid #3D2A5C; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
           <span style="font-family: Poppins, system-ui, sans-serif; font-size: 56px; font-weight: 800; color: #B99CFF; line-height: 1">01</span>
@@ -185,7 +241,7 @@ body{margin:0}
   <section style="max-width: 1240px; margin: 0 auto; padding: 120px 32px; text-align: center">
     <h2 style="margin: 0 auto 20px; max-width: 820px; font-family: Poppins, system-ui, sans-serif; font-size: clamp(40px, 6vw, 72px); font-weight: 800; line-height: 1; letter-spacing: -0.025em">Your next client<br><span style="color: #FFD34E">is already looking.</span></h2>
     <p style="margin: 0 auto 36px; max-width: 520px; font-size: 18px; line-height: 1.6; color: #CFC3E6">Download Pardeasy and claim your free profile today.</p>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px">
+    <div class="m-btns" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px">
       <a href="https://apps.apple.com/us/app/pardeasy/id6502374374" style="padding: 0 28px; min-height: 56px; display: inline-flex; align-items: center; border-radius: 14px; background: #FFD34E; color: #1B0F2E; text-decoration: none; font-weight: 600; font-size: 17px">Download on the App Store</a>
       <a href="https://play.google.com/store/apps/details?id=com.pardeasy.eventorganizer&amp;hl=en_US" style="padding: 0 28px; min-height: 56px; display: inline-flex; align-items: center; border-radius: 14px; border: 1.5px solid #6B5590; color: #F3EEFB; text-decoration: none; font-weight: 600; font-size: 17px">Get it on Google Play</a>
     </div>
